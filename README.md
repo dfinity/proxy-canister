@@ -14,9 +14,11 @@ Please review the [Candid interface](proxy/proxy.did) for details.
 The `canister_info` method of the management canister is restricted to canister-only calls.
 
 
-Make sure that following tools is installed:
-- `dfx`: [install guide](https://github.com/dfinity/sdk?tab=readme-ov-file#installing)
-- `didc`: `cargo install candid --bin didc`
+## Prerequisites
+
+Ensure the following tools are installed:
+- `dfx`: [Installation guide](https://github.com/dfinity/sdk?tab=readme-ov-file#installing)
+- `didc`: Install with `cargo install candid --bin didc`
 
 Deploy the `proxy` on a local network:
 
@@ -30,10 +32,12 @@ Deploy the `proxy` on a local network:
 ```
 # Get a valid canister ID to be used in the following commands
 > dfx canister id proxy
+
 uxrrr-q7777-77774-qaaaq-cai
 
 # Encode the call argument as bytes (use the canister ID above)
 > didc encode '(record { canister_id = principal "uxrrr-q7777-77774-qaaaq-cai" ; })' -f blob
+
 blob "DIDL\01l\01\b3\c4\b1\f2\04h\01\00\01\0a\ff\ff\ff\ff\ff\90\00\01\01\01"
 
 # Invoke the `proxy` method of the `proxy` canister
@@ -45,6 +49,7 @@ blob "DIDL\01l\01\b3\c4\b1\f2\04h\01\00\01\0a\ff\ff\ff\ff\ff\90\00\01\01\01"
     cycles = 0 : nat;
   },
 )'
+
 (
   variant {
     Ok = record {
@@ -65,6 +70,7 @@ blob "DIDL\01l\01\b3\c4\b1\f2\04h\01\00\01\0a\ff\ff\ff\ff\ff\90\00\01\01\01"
     cycles = 0 : nat;
   },
 )'
+
 Error: Failed update call.
 Caused by: The replica returned a rejection error: reject code CanisterReject, reject message Error from Canister uxrrr-q7777-77774-qaaaq-cai: Canister rejected the message, error code Some("IC0406")
 ```
@@ -80,11 +86,12 @@ Caused by: The replica returned a rejection error: reject code CanisterReject, r
     cycles = 3_000_000_000_000 : nat;
   },
 )'
+
 (
   variant {
     Err = variant {
-      InsufficientLiquidCycleBalance = record {
-        available = 2_953_114_248_181 : nat;
+      InsufficientCycles = record {
+        available = 2_946_893_376_395 : nat;
         required = 3_038_951_520_685 : nat;
       }
     }
