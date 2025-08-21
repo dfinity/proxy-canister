@@ -1,0 +1,11 @@
+{
+  "canisters": {
+    "proxy-canister": {
+      "candid": "src/proxy-canister/proxy-canister.did",
+      "package": "proxy-canister",
+      "type": "rust"
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
