@@ -505,12 +505,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "proxy-canister"
+name = "proxy"
 version = "0.1.0"
 dependencies = [
  "candid",
  "ic-cdk",
  "ic-cdk-timers",
+ "serde",
+ "serde_bytes",
 ]
 
 [[package]]

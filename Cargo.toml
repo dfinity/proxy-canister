@@ -1,5 +1,5 @@
 [workspace]
 members = [
-    "proxy-canister"
+    "proxy"
 ]
 resolver = "2"

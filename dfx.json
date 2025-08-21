@@ -1,8 +1,8 @@
 {
   "canisters": {
-    "proxy-canister": {
-      "candid": "src/proxy-canister/proxy-canister.did",
-      "package": "proxy-canister",
+    "proxy": {
+      "candid": "proxy/proxy.did",
+      "package": "proxy",
       "type": "rust"
     }
   },

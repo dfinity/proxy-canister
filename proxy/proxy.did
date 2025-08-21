@@ -1,0 +1,33 @@
+type Cycles = nat;
+
+type ProxyArgs = record {
+  canister_id : principal;
+  method : text;
+  args : blob;
+  cycles : Cycles
+};
+
+type ProxyResult = variant {
+  Ok : record {
+    result : blob
+  };
+  Err : variant {
+    /// The proxy canister does not have enough cycles to process the request.
+    InsufficientCycles : record {
+      available : Cycles;
+      required : Cycles
+    };
+
+    /// The call to the target canister failed.
+    CallFailed : record {
+      reason : text
+    };
+
+    /// The caller is not authorized to use this proxy canister (not in the controllers list).
+    UnauthorizedUser
+  }
+};
+
+service : {
+  proxy : (ProxyArgs) -> (ProxyResult)
+}
