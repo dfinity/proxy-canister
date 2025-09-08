@@ -6,13 +6,23 @@ It is designed to be integrated with the `icp` CLI tool, enabling users to invok
 - Restricted to canister-only calls
 - Require cycles payments for execution
 
-
 Please review the [Candid interface](proxy/proxy.did) for details.
+
+## LICENSE
+
+Apache License Version 2.0
+
+## Contribution
+
+This project does not accept external contributions. Pull requests from individuals outside the organization will be automatically closed.
+
+### Why we do not accept contributions
+
+This project is intended to be a minimal and stable implementation of a proxy. It's designed to be maintained and used as-is, with no plans for major new features or significant changes. We appreciate your interest, but to maintain its simplicity and stability, we've chosen to keep development in-house.
 
 ## Try with the `canister_info` method of the management canister
 
 The `canister_info` method of the management canister is restricted to canister-only calls.
-
 
 ## Prerequisites
 
